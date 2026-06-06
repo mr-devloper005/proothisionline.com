@@ -12,15 +12,15 @@ export type TaskPageVoice = {
 export const taskPageVoices = {
   article: {
     eyebrow: 'Reading desk',
-    headline: 'Long-form articles with a calmer editorial rhythm.',
-    description: 'Use this page for essays, guides, explainers, and story-led posts. The layout should feel like a publication, not a directory.',
+    headline: 'Long-form articles with an elegant editorial rhythm.',
+    description: 'Use this page for essays, guides, explainers, and story-led posts. The layout should feel composed, calm, and easy to scan.',
     filterLabel: 'Choose article topic',
     secondaryNote: 'Reading surfaces need space, hierarchy, and fewer distractions.',
     chips: ['Editorial pacing', 'Topic filters', 'Long-read friendly'],
   },
   classified: {
     eyebrow: 'Notice board',
-    headline: 'Fast-moving classifieds, offers, and time-sensitive posts.',
+    headline: 'Fast-moving notices, offers, and time-sensitive posts.',
     description: 'Classified content should feel quick to scan, practical, and action-oriented with less editorial decoration.',
     filterLabel: 'Filter classified category',
     secondaryNote: 'Prioritize urgency, short summaries, and direct browsing.',
@@ -28,7 +28,7 @@ export const taskPageVoices = {
   },
   sbm: {
     eyebrow: 'Saved resources',
-    headline: 'Social bookmarks arranged like curated collections.',
+    headline: 'Bookmarks arranged like curated collections.',
     description: 'Bookmark pages should feel like shelves of useful resources, tools, references, and collections.',
     filterLabel: 'Filter collection',
     secondaryNote: 'Curated resources need grouping and calm metadata.',
