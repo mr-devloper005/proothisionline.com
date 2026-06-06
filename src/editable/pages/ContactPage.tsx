@@ -10,37 +10,25 @@ import { EditableSiteShell } from '@/editable/shell/EditableSiteShell'
 function getTone(kind: ReturnType<typeof getProductKind>) {
   if (kind === 'directory') {
     return {
-      shell: 'bg-[#f8fbff] text-slate-950',
-      panel: 'border border-slate-200 bg-white',
-      soft: 'border border-slate-200 bg-slate-50',
-      muted: 'text-slate-600',
-      action: 'bg-slate-950 text-white hover:bg-slate-800',
-    }
-  }
-  if (kind === 'editorial') {
-    return {
-      shell: 'bg-[#fbf6ee] text-[#241711]',
-      panel: 'border border-[#dcc8b7] bg-[#fffdfa]',
-      soft: 'border border-[#e6d6c8] bg-[#fff4e8]',
-      muted: 'text-[#6e5547]',
-      action: 'bg-[#241711] text-[#fff1e2] hover:bg-[#3a241b]',
+      accent: 'bg-[#18150f] text-white',
+      panel: 'border border-black/10 bg-white shadow-[0_18px_46px_rgba(24,21,15,0.08)]',
+      soft: 'border border-black/10 bg-[linear-gradient(180deg,#fffdf6,#f8f3e7)]',
+      muted: 'text-black/60',
     }
   }
   if (kind === 'visual') {
     return {
-      shell: 'bg-[#07101f] text-white',
-      panel: 'border border-white/10 bg-white/6',
-      soft: 'border border-white/10 bg-white/5',
-      muted: 'text-slate-300',
-      action: 'bg-[#8df0c8] text-[#07111f] hover:bg-[#77dfb8]',
+      accent: 'bg-[#18150f] text-white',
+      panel: 'border border-white/10 bg-white/[0.06] text-white shadow-[0_18px_46px_rgba(0,0,0,0.22)]',
+      soft: 'border border-white/10 bg-white/[0.04]',
+      muted: 'text-white/72',
     }
   }
   return {
-    shell: 'bg-[#f7f1ea] text-[#261811]',
-    panel: 'border border-[#ddcdbd] bg-[#fffaf4]',
-    soft: 'border border-[#e8dbce] bg-[#f3e8db]',
-    muted: 'text-[#71574a]',
-    action: 'bg-[#5b2b3b] text-[#fff0f5] hover:bg-[#74364b]',
+    accent: 'bg-[#18150f] text-white',
+    panel: 'border border-black/10 bg-white shadow-[0_18px_46px_rgba(24,21,15,0.08)]',
+    soft: 'border border-black/10 bg-[linear-gradient(180deg,#fffdf6,#f8f3e7)]',
+    muted: 'text-black/60',
   }
 }
 
@@ -56,46 +44,44 @@ export default function ContactPage() {
           { icon: Phone, title: 'Partnership support', body: 'Talk through bulk publishing, local growth, and operational setup questions.' },
           { icon: MapPin, title: 'Coverage requests', body: 'Need a new geography or category lane? We can shape the directory around it.' },
         ]
-      : productKind === 'editorial'
+      : productKind === 'visual'
         ? [
+            { icon: ImageIcon, title: 'Creator collaborations', body: 'Discuss gallery launches, creator features, and visual campaigns.' },
+            { icon: Sparkles, title: 'Licensing and use', body: 'Reach out about usage rights, commercial requests, and visual partnerships.' },
+            { icon: Mail, title: 'Media kits', body: 'Request creator decks, editorial support, or visual feature placement.' },
+          ]
+        : [
             { icon: FileText, title: 'Editorial submissions', body: 'Pitch essays, columns, and long-form ideas that fit the publication.' },
             { icon: Mail, title: 'Newsletter partnerships', body: 'Coordinate sponsorships, collaborations, and issue-level campaigns.' },
             { icon: Sparkles, title: 'Contributor support', body: 'Get help with voice, formatting, and publication workflow questions.' },
           ]
-        : productKind === 'visual'
-          ? [
-              { icon: ImageIcon, title: 'Creator collaborations', body: 'Discuss gallery launches, creator features, and visual campaigns.' },
-              { icon: Sparkles, title: 'Licensing and use', body: 'Reach out about usage rights, commercial requests, and visual partnerships.' },
-              { icon: Mail, title: 'Media kits', body: 'Request creator decks, editorial support, or visual feature placement.' },
-            ]
-          : [
-              { icon: Bookmark, title: 'Collection submissions', body: 'Suggest resources, boards, and links that deserve a place in the library.' },
-              { icon: Mail, title: 'Resource partnerships', body: 'Coordinate curation projects, reference pages, and link programs.' },
-              { icon: Sparkles, title: 'Curator support', body: 'Need help organizing shelves, collections, or profile-connected boards?' },
-            ]
 
   return (
-    <EditableSiteShell className={tone.shell}>
-      <main className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <section className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] opacity-70">{pagesContent.contact.eyebrow}</p>
-            <h1 className="mt-4 text-5xl font-semibold tracking-[-0.05em]">{pagesContent.contact.title}</h1>
-            <p className={`mt-5 max-w-2xl text-sm leading-8 ${tone.muted}`}>{pagesContent.contact.description}</p>
+    <EditableSiteShell>
+      <main className="mx-auto max-w-[1500px] px-4 py-14 sm:px-6 lg:px-8">
+        <section className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+          <div className={`rounded-[2.5rem] p-7 sm:p-10 ${tone.panel} ${productKind === 'visual' ? 'bg-[var(--slot4-dark-bg)]' : ''}`}>
+            <p className="text-xs font-black uppercase tracking-[0.24em] text-[var(--slot4-accent-fill)]">{pagesContent.contact.eyebrow}</p>
+            <h1 className={`mt-4 text-5xl font-black leading-[0.95] tracking-[-0.08em] sm:text-6xl ${productKind === 'visual' ? 'text-white' : ''}`}>{pagesContent.contact.title}</h1>
+            <p className={`mt-5 max-w-2xl text-base leading-8 ${tone.muted}`}>{pagesContent.contact.description}</p>
             <div className="mt-8 space-y-4">
               {lanes.map((lane) => (
-                <div key={lane.title} className={`rounded-[1.6rem] p-5 ${tone.soft}`}>
+                <div key={lane.title} className={`rounded-[1.8rem] p-5 ${tone.soft}`}>
                   <lane.icon className="h-5 w-5" />
-                  <h2 className="mt-3 text-xl font-semibold">{lane.title}</h2>
+                  <h2 className={`mt-3 text-xl font-black ${productKind === 'visual' ? 'text-white' : ''}`}>{lane.title}</h2>
                   <p className={`mt-2 text-sm leading-7 ${tone.muted}`}>{lane.body}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className={`rounded-[2rem] p-7 ${tone.panel}`}>
-            <h2 className="text-2xl font-semibold">{pagesContent.contact.formTitle}</h2>
-            <EditableContactLeadForm />
+          <div className={`rounded-[2.5rem] p-7 sm:p-8 ${tone.panel}`}>
+            <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.24em] text-[var(--slot4-accent-fill)]">
+              <Mail className="h-4 w-4" /> {pagesContent.contact.formTitle}
+            </div>
+            <div className="mt-5">
+              <EditableContactLeadForm />
+            </div>
           </div>
         </section>
       </main>

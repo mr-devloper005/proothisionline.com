@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, SearchX } from 'lucide-react'
+import { ArrowRight, SearchX, Sparkles } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 type EmptyStateProps = {
@@ -18,13 +18,13 @@ export function EmptyState({
   className,
 }: EmptyStateProps) {
   return (
-    <section className={cn('rounded-[2rem] border border-current/10 bg-current/[0.03] p-8 text-center', className)}>
-      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-current/10">
+    <section className={cn('rounded-[2.2rem] border border-black/10 bg-[linear-gradient(180deg,#fffdf6,#f8f3e7)] p-8 text-center shadow-[0_18px_46px_rgba(24,21,15,0.08)]', className)}>
+      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[var(--slot4-dark-bg)] text-white">
         <SearchX className="h-6 w-6" />
       </div>
-      <h2 className="mt-5 text-2xl font-semibold tracking-[-0.03em]">{title}</h2>
-      <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-current/65">{description}</p>
-      <Link href={actionHref} className="mt-6 inline-flex items-center gap-2 rounded-full border border-current/15 px-5 py-3 text-sm font-semibold transition hover:bg-current hover:text-background">
+      <h2 className="mt-5 text-2xl font-black tracking-[-0.05em]">{title}</h2>
+      <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-black/60">{description}</p>
+      <Link href={actionHref} className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--slot4-dark-bg)] px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5">
         {actionLabel}
         <ArrowRight className="h-4 w-4" />
       </Link>

@@ -15,6 +15,7 @@ body {
   background-color: var(--slot4-page-bg) !important;
   color: var(--slot4-page-text) !important;
   background-image: var(--slot4-body-gradient) !important;
+  background-attachment: fixed;
 }
 
 ::selection {
@@ -41,4 +42,27 @@ body {
 
 .article-content a {
   color: var(--slot4-accent-fill);
+}
+
+.article-content p + p {
+  margin-top: 1.2em;
+}
+
+.article-content ul,
+.article-content ol {
+  padding-left: 1.25rem;
+}
+
+.article-content h3,
+.article-content h4 {
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+  font-weight: 800;
+}
+
+.article-content blockquote {
+  margin: 1.5rem 0;
+  border-left: 4px solid var(--slot4-accent);
+  padding-left: 1rem;
+  color: var(--slot4-muted-text);
 }
