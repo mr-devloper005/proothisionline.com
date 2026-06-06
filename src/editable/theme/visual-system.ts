@@ -15,12 +15,12 @@ export const visualPresets = {
     mood: 'calm magazine authority',
     fontDirection: 'serif headlines with quiet sans body',
     colors: {
-      background: '#f7efe3',
-      foreground: '#201711',
-      muted: '#7b6253',
-      primary: '#261811',
-      accent: '#b76e45',
-      surface: '#fffaf2',
+      background: '#f8f3e7',
+      foreground: '#18150f',
+      muted: '#5d5648',
+      primary: '#18150f',
+      accent: '#9ab17a',
+      surface: '#fffdf6',
     },
     shape: 'soft editorial cards with fine borders',
   },
@@ -29,12 +29,12 @@ export const visualPresets = {
     mood: 'premium, restrained, polished',
     fontDirection: 'high-contrast display headings with spacious tracking',
     colors: {
-      background: '#0f1110',
-      foreground: '#f6ead8',
-      muted: '#b8aa94',
-      primary: '#d7b56d',
-      accent: '#7f1d1d',
-      surface: '#181a17',
+      background: '#18150f',
+      foreground: '#fffdf6',
+      muted: '#d7cfbd',
+      primary: '#c3cc9b',
+      accent: '#9ab17a',
+      surface: '#262117',
     },
     shape: 'large dark panels, gold hairlines, generous negative space',
   },
@@ -112,14 +112,7 @@ export const visualPresets = {
 
 export const visualSystem = {
   productKind: slot4BrandConfig.productKind,
-  recommendedPreset:
-    slot4BrandConfig.productKind === 'visual'
-      ? 'visual-gallery'
-      : slot4BrandConfig.productKind === 'editorial'
-        ? 'editorial-paper'
-        : slot4BrandConfig.productKind === 'directory'
-          ? 'tech-directory'
-          : 'organic-journal',
+  recommendedPreset: 'luxury-atelier',
   radius: {
     sm: '0.75rem',
     md: '1.25rem',
